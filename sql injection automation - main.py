@@ -44,6 +44,28 @@ def welcome():
                 I'm not responsible for its use that violates the law!!!
 
                 Creator: Dawid(WolfMan12333/Daredevil) Wordliczek\n\n\n
+
+                                      _.---**""**-.       
+                              ._   .-'           /|`.     
+                               \`.'             / |  `.   
+                                V              (  ;    \  
+                                L       _.-  -. `'      \ 
+                               / `-. _.'       \         ;
+                              :            __   ;    _   |
+                              :`-.___.+-*"': `  ;  .' `. |
+                               |`-/     `--*'   /  /  /`.\|
+                              : :              \    :`.| ;
+                              | |   .           ;/ .' ' / 
+                              : :  / `             :__.'  
+                               \`._.-'       /     |      
+                                : )         :      ;      
+                                :----.._    |     /       
+                               : .-.    `.       /        
+                                \     `._       /         
+                                /`-            /          
+                               :             .'           
+                                \ )       .-'             
+                                 `-----*"'    
         """, 'red'))
 
 def print_menu():
