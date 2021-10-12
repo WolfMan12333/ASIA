@@ -1,0 +1,25 @@
+String concatenation
+'foo'+'bar'
+
+Substring
+SUBSTRING('foobar', 4, 2)
+
+Comments
+--comment
+/*comment*/
+
+Database version
+SELECT @@version
+
+Database contents
+SELECT * FROM information_schema.tables
+SELECT * FROM information_schema.columns WHERE table_name = '{TABLE_NAME}'
+
+Conditional errors
+SELECT CASE WHEN (YOUR_CONDITION_HERE) THEN 1/0 ELSE NULL END
+
+Time delays
+WAITFOR DELAY '0:0:10'
+
+Conditional time delays
+IF (YOUR_CONDITION_HERE) WAITFOR DELAY '0:0:10'

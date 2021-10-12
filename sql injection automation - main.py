@@ -10,7 +10,7 @@ from termcolor import colored
 from time import sleep
 
 #own files
-import Basic_SQL_Injection.bsi as bsi	#option nr.: 1
+#import Basic_SQL_Injection.bsi as bsi	#option nr.: 1
 import Retr_Hidden_Data.rhd as rhd	#option nr.: 2
 import Retr_Data_from_Other_DB_Tabl.rdfodbt as rdfodbt	#option nr.: 3
 import Subverting_App_Logic.sal as sal	#option nr.: 4
@@ -25,15 +25,14 @@ def clear():
 
 #options/ menu
 menu_options = {
-	1: 'Basic Sql Injection',
-	2: 'Retrieving Hidden Data',
-	3: 'Retrieving Data from Other Database Tables',
-	4: 'Subverting Application Logic',
-	5: 'SQL Injection - Blind',
-	6: 'Inducing Conditional Responses by Triggering SQL errors',
-	7: 'Exploiting Blind SQL Injection by Triggering Time Delays',
-	8: 'Login Bypass',
-	9: 'Exit',
+	1: 'Retrieving Hidden Data',
+	2: 'Retrieving Data from Other Database Tables',
+	3: 'Subverting Application Logic',
+	4: 'SQL Injection - Blind',
+	5: 'Inducing Conditional Responses by Triggering SQL errors',
+	6: 'Exploiting Blind SQL Injection by Triggering Time Delays',
+	7: 'Login Bypass',
+	8: 'Exit',
 }
 
 def welcome():
@@ -89,20 +88,12 @@ def menu_option():
 	if option == 1:
 		clear()
 		welcome()
-		print('Your choice -- Basic Sql Injection\n\n')
-		bsi.start_bsi()
-		sleep(4)
-		clear()
-		welcome()
-	elif option == 2:
-		clear()
-		welcome()
 		print('Your choice -- Retrieving Hidden Data\n\n')
 		rhd.start_rhd()
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 3:
+	elif option == 2:
 		clear()
 		welcome()
 		print('Your choice -- Retrieving Data from Other Database Tables\n\n')
@@ -110,7 +101,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 4:
+	elif option == 3:
 		clear()
 		welcome()
 		print('Your choice -- Subverting Application Logic\n\n')
@@ -118,7 +109,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 5:
+	elif option == 4:
 		clear()
 		welcome()
 		print('Your choice -- SQL Injection - Blind\n\n')
@@ -126,7 +117,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 6:
+	elif option == 5:
 		clear()
 		welcome()
 		print('Your choice -- Inducing Conditional Responses by Triggering SQL error\n\n')
@@ -134,7 +125,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 7:
+	elif option == 6:
 		clear()
 		welcome()
 		print('Your choice -- Exploiting Blind SQL Injection by Triggering Time Delays\n\n')
@@ -142,7 +133,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 8:
+	elif option == 7:
 		clear()
 		welcome()
 		print('Your choice -- Bypass Login Page\n\n')
@@ -150,7 +141,7 @@ def menu_option():
 		sleep(4)
 		clear()
 		welcome()
-	elif option == 9:
+	elif option == 8:
 		clear()
 		print('\t\t\t\t\t\t600D 8Y3 ...')
 		sleep(4)

